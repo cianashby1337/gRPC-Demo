@@ -1,3 +1,6 @@
+#
+# This code is based off of the tutorial at https://grpc.io/docs/languages/python/quickstart/
+#
 from __future__ import print_function
 
 import logging
