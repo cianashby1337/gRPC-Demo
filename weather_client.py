@@ -3,15 +3,15 @@ from __future__ import print_function
 import logging
 
 import grpc
-import helloworld_pb2
-import helloworld_pb2_grpc
+import helloworld_pb2 as messages
+import helloworld_pb2_grpc as stubs
 
 
 def run():
     print("Getting the weather ...")
     with grpc.insecure_channel("localhost:50051") as channel:
-        stub = helloworld_pb2_grpc.WeatherStub(channel)
-        response = stub.GetWeather(helloworld_pb2.WeatherRequest(location="Galway"))
+        stub = stubs.WeatherStub(channel)
+        response = stub.GetWeather(messages.WeatherRequest(location="Galway"))
     print("The weather for " + response.location + " is: " + response.weather)
 
 
